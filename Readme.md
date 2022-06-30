@@ -7,6 +7,7 @@ The API is RESTFUL and returns results in JSON(Javascript Object Notation).
 To start the local server simply run the following command in the root directory of the project
 
 > npm install
+#
 > npm run server
 
 ## 1. `/`
