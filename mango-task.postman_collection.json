@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "73a417ae-2d60-4140-845a-416f2823f420",
+		"name": "mango-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13010749"
+	},
+	"item": [
+		{
+			"name": "Smartphone",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productTitle\":\"OPPO A15s\",\r\n    \"productPrice\":70990,\r\n    \"discount\":29,\r\n \r\n    \"brand\":\"Oppo\",\r\n    \"ram\":4,\r\n    \"internalStorage\":\"64GB\",\r\n    \"colors\":[\"Black\",\"White\",\"Silver\"],\r\n      \"camera\": {\r\n            \"primary\": {\r\n            \"available\": true,\r\n            \"megapixel\": \"12MP\" \r\n            },\r\n            \"front\": {\r\n            \"available\": true,\r\n            \"megapixel\": \"12MP \"\r\n            },\r\n            \"macro\": {\r\n            \"available\": false,\r\n            \"megapixel\": \"0MP\"\r\n            },\r\n            \"wideangle\": {\r\n            \"available\": true,\r\n            \"megapixel\": \"12MP\"\r\n            }\r\n  },\r\n  \"battery\":4230,\r\n  \"processor\":\"2.3GHz Mediatek Helio P35 octa core processor, GPU IMG GE8320\",\r\n  \"screenSize\":6.52,\r\n  \"rating\":4.3,\r\n  \"warrantyDuration\":\"1 year\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/smartphone/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"smartphone",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"battery\":4000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/smartphone/62b8b0055add5b99ec6a92cc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"smartphone",
+								"62b8b0055add5b99ec6a92cc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/smartphone?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"smartphone"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/smartphone/62bdcbf9a137ba00d3f9fe55",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"smartphone",
+								"62bdcbf9a137ba00d3f9fe55"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -8,6 +8,13 @@ const productListValidation = require("../helpers/validation/getProductList");
 const validationErrorHandler = require("../helpers/validation/index");
 
 router.get(
+  "/",
+  productListValidation,
+  validationErrorHandler,
+  smartphoneController.getProductList
+);
+
+router.get(
   "/:productID",
   deleteProductValidation,
   validationErrorHandler,

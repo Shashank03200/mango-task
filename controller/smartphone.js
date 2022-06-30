@@ -13,8 +13,8 @@ const getProductList = async (req, res, next) => {
 
 const getProduct = async (req, res, next) => {
   try {
-    const prodcutID = req.params.prodcutID;
-    const foundProduct = await Smartphone.findById(prodcutID);
+    const productID = req.params.productID;
+    const foundProduct = await Smartphone.findOne({ _id: productID });
 
     if (!foundProduct) {
       return res.status(400).json({
