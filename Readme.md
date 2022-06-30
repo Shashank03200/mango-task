@@ -10,11 +10,9 @@ To start the local server simply run the following command in the root directory
 #
 > npm run server
 
-## 1. `/`
+## 1. GET `/{productID}:``/`
 
-### _To fetch a particular product details using productID
-
-#### GET `/{productID}:`
+### _To fetch a particular product details using productID_
 
 #### Responses
 
@@ -37,12 +35,9 @@ To start the local server simply run the following command in the root directory
  }
  ```
 
-## 2. `/smartphone/new`
+## 2. POST `/smartphone/new`
 
 ### _for adding a new product_
-
-#### POST `/api/auth/signup`
-
 
 #### Request Body in JSON
 
@@ -133,19 +128,18 @@ To start the local server simply run the following command in the root directory
 ```
 
 
-## 3. `/smartphone/{productID}:`
+## 3. PUT`/smartphone/{productID}:`
 
 ### _For updating a product details_
-
-### POST 
-
   
 ### Request Body in JSON
+
 ```json
 {
    "colors":["Gold","Black","Blue"]
 }
- 
+```
+
 ### Response Body in JSON
 
 - Status Code: 200
@@ -207,13 +201,11 @@ To start the local server simply run the following command in the root directory
 }
 ```
 
-##4. 
-
-#### GET 
+##4. GET `/smartphone/{queryParams}`
 
 ### _Returns the product lists based on filter and queries_
 
-## GET `/smartphone/{queryParams}
+## 
 
 ## List of query parameters:
 
@@ -238,75 +230,164 @@ Example:
 
 #### Response in JSON
 
-```ts
-
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "camera": {
+                "primary": {
+                    "available": true,
+                    "megapixel": "50MP"
+                },
+                "front": {
+                    "available": true,
+                    "megapixel": "16MP"
+                },
+                "macro": {
+                    "available": true,
+                    "megapixel": "2MP"
+                },
+                "wideangle": {
+                    "available": false,
+                    "megapixel": "0"
+                }
+            },
+            "_id": "62b8cad64665ffd0894cbf26",
+            "productTitle": "Vivo Y33T (Mirror Black, 8GB RAM, 128GB ROM) with No Cost EMI/Additional Exchange Offers",
+            "productPrice": 17990,
+            "discount": 15,
+            "ram": 8,
+            "internalStorage": "128GB",
+            "colors": [
+                "Black",
+                "Gold"
+            ],
+            "battery": 5000,
+            "processor": " Snapdragon 680 Octa core processor",
+            "screenSize": 6.58,
+            "rating": 4.4,
+            "warrantyDuration": "1 year",
+            "__v": 0,
+            "brand": "Vivo",
+            "quantity": 650
+        },
+        {
+            "camera": {
+                "primary": {
+                    "available": true,
+                    "megapixel": "13MP"
+                },
+                "front": {
+                    "available": true,
+                    "megapixel": "5MP"
+                },
+                "macro": {
+                    "available": true,
+                    "megapixel": "2MP"
+                },
+                "wideangle": {
+                    "available": false,
+                    "megapixel": "0"
+                }
+            },
+            "_id": "62b8cb3c4665ffd0894cbf28",
+            "productTitle": "Vivo Y33T (Mirror Black, 8GB RAM, 128GB ROM) with No Cost EMI/Additional Exchange Offers",
+            "productPrice": 17990,
+            "discount": 15,
+            "ram": 8,
+            "internalStorage": "128GB",
+            "colors": [
+                "Gold",
+                "Black",
+                "Blue"
+            ],
+            "battery": 5000,
+            "processor": "MediaTek Helio G25 Octa-corer",
+            "screenSize": 6.52,
+            "rating": 4.4,
+            "warrantyDuration": "1 year",
+            "__v": 0,
+            "brand": "Vivo",
+            "quantity": 800
+        }
+    ]
+}
  
 ```
 
 
-## 4. `/api/profile/getuser`
+## 4. DELETE `/smartphone/${productID}`
 
-### _for getting info on logged in user_
-
-#### GET `/api/profile/getuser`
-
-| Header          | Value                      |
-| :-------------- | :------------------------- |
-| `authorization` | `Bearer someLongJWTString` |
 
 #### Response type
 
-```ts
+Status Code: 400
+
 {
-    user: {
-        name: string,
-        username: string,
-        email: string,
-        rollno: string,
-        phoneno: number,
-        attempts: number,
-        score: number,
-        level: string,
-        active: boolean,
-        image: string
-    },
-    token : string
+    "success": true,
+    "msg": "Product Not Found"
 }
+
+Status Code: 200
+
+```ts
+
+{
+    "success": true,
+    "data": {
+        "foundProduct": {
+            "_id": "62b8c7db7c94930617b56a08",
+            "productTitle": "Oppo A54 (Starry Blue, 6GB RAM, 128GB Storage) with No Cost EMI & Additional Exchange Offers",
+            "productPrice": {
+                "$numberDecimal": "10990"
+            },
+            "discount": 12,
+            "ram": 8,
+            "internalStorage": "128GB",
+            "colors": [
+                "Gold",
+                "Black",
+                "Blue"
+            ],
+            "camera": {
+                "primary": {
+                    "available": true,
+                    "megapixel": "13MP"
+                },
+                "front": {
+                    "available": true,
+                    "megapixel": "16MP"
+                },
+                "macro": {
+                    "available": true,
+                    "megapixel": "2MP"
+                },
+                "wideangle": {
+                    "available": false,
+                    "megapixel": "0"
+                }
+            },
+            "battery": 5000,
+            "processor": "MediaTek Helio P35 GPU IMG GE8320 @ 680 MHz, Powerful 2.3 GHz Octa-core processor, support LPDDR4X memory",
+            "screenSize": 6.51,
+            "rating": 4.2,
+            "warrantyDuration": "1 year",
+            "__v": 0,
+            "brand": "Oppo",
+            "quantity": 750
+        }
+    },
+    "msg": "Product Deleted"
+}
+
 ```
 
-The `user` object contains details about the user that is signedin
 
-The `name` attribute contains name of the user that is signedin
+## 5.  GET `smartphone/{productID}:`
 
-The `username` attribute contains name of the user that is signedin
+### _retrieve details of a particular product by its product ID_
 
-The `email` attribute contains email of the signedin user
-
-The `rollno` attribute contains admisson number of the signedin user
-
-The `phoneno` attribute contains phone number of the signinin user
-
-The `attempts` attribute contains attempts on the latest of the signedin user
-
-The `score` attribute contains score of the signedin user, i.e. the score from questions solved
-
-The `level` attribute contains level of the signedin user, i.e. amount of question cleared
-
-The `active` attribute dictates if the account is verified or not
-
-The `image` attribute contains the url of the image sent by the user
-
-The `token` attribute contains the jwt string
-
-## 5. `/api/question/getone`
-
-### _for an appropriate question_
-
-#### GET `/api/question/getone`
-
-| Header          | Value                      |
-| :-------------- | :------------------------- |
-| `authorization` | `Bearer someLongJWTString` |
 
 #### Response in JSON
 
