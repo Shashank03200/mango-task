@@ -134,7 +134,7 @@ To start the local server simply run the following command in the root directory
 
 ### _For updating a product details_
   
-### Request Body in JSON
+#### Request Body in JSON
 
 ```json
 {
@@ -203,13 +203,11 @@ To start the local server simply run the following command in the root directory
 }
 ```
 
-##4. GET `/smartphone/{queryParams}`
+## 4. GET `/smartphone/{queryParams}`
 
 ### _Returns the product lists based on filter and queries_
 
-## 
-
-## List of query parameters:
+#### List of query parameters:
 
 
 | parameterName | type  | description |
