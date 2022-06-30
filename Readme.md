@@ -10,7 +10,9 @@ To start the local server simply run the following command in the root directory
 #
 > npm run server
 
-## 1. GET `/{productID}:``/`
+# API Routes:
+
+## 1. GET `/{productID}:`
 
 ### _To fetch a particular product details using productID_
 
@@ -391,120 +393,49 @@ Status Code: 200
 
 #### Response in JSON
 
-```ts
-{
-  question:{
-    level: number,
-    question: string
-  }
-}
-```
-
-The `question` object contains details of a question
-
-The `level` attribute the level of a particular question in a number
-
-The `question` attribute contains the question string
-
-## 6. `/api/question`
-
-### _for creating a question_
-
-#### POST `/api/question`
-
-| Parameter  | Type     | Description |
-| :--------- | :------- | :---------- |
-| `question` | `string` | _Required_  |
-| `answer`   | `string` | _Required_  |
-| `level`    | `number` | _Required_  |
-
-#### Request Body in JSON
-
 ```json
 {
-  "question": "What is the closest star to the Earth",
-  "answer": "Sun",
-  "level": "1"
-}
-```
-
-#### Response in JSON
-
-```ts
-{
-    question: string,
-    answer: string,
-    level: number
-}
-```
-
-The `question` attribute contains the question string of the created question
-
-The `answer` attribute contains answer to the question in a string of the created question
-
-The `level` attribute the level of a created question in a number
-
-## 7. `/api/question/ans`
-
-### _for answering a question_
-
-#### POST `/api/question/ans`
-
-#### Request Body
-
-| Parameter | Type     | Description |
-| :-------- | :------- | :---------- |
-| `answer`  | `string` | _Required_  |
-
-#### Request Headers
-
-| Header          | Value                      |
-| :-------------- | :------------------------- |
-| `authorization` | `Bearer someLongJWTString` |
-
-#### Request Body in JSON
-
-```json
-{
-  "answer": "Sun"
-}
-```
-
-#### Response in JSON
-
-```ts
-{
-    result: "correct or incorrect"
-}
-```
-
-The `answer` attribute contains answer to the question in a string of the created question
-
-## 8. `/api/leaderboard`
-
-### _For getting a leaderboard_
-
-#### GET `/api/leaderboard`
-
-| Header          | Value                      |
-| :-------------- | :------------------------- |
-| `authorization` | `Bearer someLongJWTString` |
-
-#### Response in JSON
-
-```ts
-{
-    leaderboard: [
-        {
-            name: string,
-            score: number
+    "success": true,
+    "msg": "Product found",
+    "data": {
+        "camera": {
+            "primary": {
+                "available": true,
+                "megapixel": "12MP"
+            },
+            "front": {
+                "available": true,
+                "megapixel": "12MP "
+            },
+            "macro": {
+                "available": false,
+                "megapixel": "0MP"
+            },
+            "wideangle": {
+                "available": true,
+                "megapixel": "12MP"
+            }
         },
-    ],
+        "_id": "62bdcbf9a137ba00d3f9fe55",
+        "productTitle": "OPPO A15s",
+        "productPrice": 70990,
+        "discount": 29,
+        "ram": 4,
+        "internalStorage": "64GB",
+        "colors": [
+            "Black",
+            "White",
+            "Silver"
+        ],
+        "brand": "Oppo",
+        "quantity": 1200,
+        "battery": 4230,
+        "processor": "2.3GHz Mediatek Helio P35 octa core processor, GPU IMG GE8320",
+        "screenSize": 6.52,
+        "rating": 4.3,
+        "warrantyDuration": "1 year",
+        "__v": 0
+    }
 }
 ```
 
-The `leaderboard` array contains an object of player with name and score attribute. This array is sorted in a Descending order
-
-The `name` attribute contains name of a user
-
-The `score` attribute contains score of a user, i.e. the score from questions solved
